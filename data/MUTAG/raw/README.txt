@@ -1,85 +1,166 @@
-README for dataset MUTAG
+# Ocean Noise Pollution Analyzer
 
+## Overview
 
-=== Usage ===
+The **Ocean Noise Pollution Analyzer** is a Machine Learning-based project designed to analyze and classify underwater acoustic signals. The system identifies different types of ocean noise (such as anthropogenic and natural sounds) using structured sonar/acoustic data and evaluates model performance through multiple metrics.
 
-This folder contains the following comma separated text files 
-(replace DS by the name of the dataset):
+---
 
-n = total number of nodes
-m = total number of edges
-N = number of graphs
+## Objectives
 
-(1) 	DS_A.txt (m lines) 
-	sparse (block diagonal) adjacency matrix for all graphs,
-	each line corresponds to (row, col) resp. (node_id, node_id)
+* Analyze underwater acoustic data
+* Classify noise sources using Machine Learning models
+* Evaluate performance using standard metrics
+* Compare models using a **Leaderboard system**
+* Visualize results through graphs and plots
 
-(2) 	DS_graph_indicator.txt (n lines)
-	column vector of graph identifiers for all nodes of all graphs,
-	the value in the i-th line is the graph_id of the node with node_id i
+---
 
-(3) 	DS_graph_labels.txt (N lines) 
-	class labels for all graphs in the dataset,
-	the value in the i-th line is the class label of the graph with graph_id i
+## Tech Stack
 
-(4) 	DS_node_labels.txt (n lines)
-	column vector of node labels,
-	the value in the i-th line corresponds to the node with node_id i
+* **Language:** Python
+* **Libraries:** Pandas, NumPy, Matplotlib, Scikit-learn
+* **Environment:** Jupyter Notebook
+* **Version Control:** Git & GitHub
 
-There are OPTIONAL files if the respective information is available:
+---
 
-(5) 	DS_edge_labels.txt (m lines; same size as DS_A_sparse.txt)
-	labels for the edges in DD_A_sparse.txt 
+## Dataset
 
-(6) 	DS_edge_attributes.txt (m lines; same size as DS_A.txt)
-	attributes for the edges in DS_A.txt 
+* Sonar Acoustic Dataset (CSV format)
+* Contains numerical features representing acoustic signals
+* Used for classification of different sound types
 
-(7) 	DS_node_attributes.txt (n lines) 
-	matrix of node attributes,
-	the comma seperated values in the i-th line is the attribute vector of the node with node_id i
+---
 
-(8) 	DS_graph_attributes.txt (N lines) 
-	regression values for all graphs in the dataset,
-	the value in the i-th line is the attribute of the graph with graph_id i
+## Methodology (Pipeline)
 
+1. **Data Loading**
+2. **Data Preprocessing**
 
-=== Description of the dataset === 
+   * Handling missing values
+   * Feature scaling
+   * Label encoding
+3. **Model Training**
 
-The MUTAG dataset consists of 188 chemical compounds divided into two 
-classes according to their mutagenic effect on a bacterium. 
+   * Random Forest
+   * Support Vector Machine (SVM)
+   * Logistic Regression
+4. **Evaluation Metrics**
 
-The chemical data was obtained form http://cdb.ics.uci.edu and converted 
-to graphs, where vertices represent atoms and edges represent chemical 
-bonds. Explicit hydrogen atoms have been removed and vertices are labeled
-by atom type and edges by bond type (single, double, triple or aromatic).
-Chemical data was processed using the Chemistry Development Kit (v1.4).
+   * Accuracy
+   * Precision
+   * Recall
+   * F1 Score
+5. **Visualization**
 
-Node labels:
+   * Confusion Matrix
+   * ROC Curve
+   * Model Comparison Graphs
+6. **Leaderboard System**
 
-  0  C
-  1  N
-  2  O
-  3  F
-  4  I
-  5  Cl
-  6  Br
+   * Stores and ranks model performance
 
-Edge labels:
+---
 
-  0  aromatic
-  1  single
-  2  double
-  3  triple
+## Results
 
+* Multiple models were trained and evaluated
+* Best model selected based on **Accuracy and F1 Score**
+* Performance visualized using graphs and ROC curve
+* Results stored in a leaderboard for comparison
 
-=== Previous Use of the Dataset ===
+---
 
-Kriege, N., Mutzel, P.: Subgraph matching kernels for attributed graphs. In: Proceedings
-of the 29th International Conference on Machine Learning (ICML-2012) (2012).
+## Leaderboard
 
+| Rank | Model               | Accuracy | F1 Score |
+| ---- | ------------------- | -------- | -------- |
+| 1    | Random Forest       | High     | High     |
+| 2    | SVM                 | Medium   | Medium   |
+| 3    | Logistic Regression | Moderate | Moderate |
 
-=== References ===
+*(Actual values generated during execution)*
 
-Debnath, A.K., Lopez de Compadre, R.L., Debnath, G., Shusterman, A.J., and Hansch, C.
-Structure-activity relationship of mutagenic aromatic and heteroaromatic nitro compounds.
-Correlation with molecular orbital energies and hydrophobicity. J. Med. Chem. 34(2):786-797 (1991).
+---
+
+## Project Structure
+
+```
+ocean-noise-pollution-analyzer/
+│
+├── notebooks/
+│   └── Ocean_Noise_Analyzer.ipynb
+│
+├── leaderboard/
+│   └── leaderboard.csv
+│
+├── images/
+│   └── (graphs and visualizations)
+│
+├── docs/
+│   └── report.pdf
+│
+├── README.md
+├── requirements.txt
+```
+
+---
+
+## How to Run
+
+1. Clone the repository:
+
+```
+git clone https://github.com/your-username/ocean-noise-pollution-analyzer.git
+```
+
+2. Install dependencies:
+
+```
+pip install -r requirements.txt
+```
+
+3. Run Jupyter Notebook:
+
+```
+jupyter notebook
+```
+
+4. Open and execute:
+
+```
+Ocean_Noise_Analyzer.ipynb
+```
+
+---
+
+## Visualizations
+
+* Model Accuracy Comparison
+* Confusion Matrix
+* ROC Curve
+
+(All graphs are available in the `images/` folder)
+
+---
+
+## Future Scope
+
+* Real-time ocean noise monitoring
+* Deep learning models (CNN)
+* Integration with IoT sensors
+* Geographic noise mapping
+
+---
+
+##Author
+
+**Neha Jadhav**
+TY B.Sc. Data Science & Big Data Analytics
+
+---
+
+##License
+
+This project is for academic and educational purposes.
